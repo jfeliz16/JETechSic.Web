@@ -1,0 +1,16 @@
+body {    
+}
+#login-google {
+    background-color: #dc0f0f;
+    color: white
+}
+#login-facebook {
+    color: white;
+    background-color: navy;
+}
+#login-facebook:hover {
+    background-color: #030356;
+}
+#login-google:hover {
+    background-color: #7d0000;
+}
