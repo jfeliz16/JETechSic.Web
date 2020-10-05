@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using JETech.SIC.Web.Models;
 using System.Security.Cryptography;
-using DevExtreme.AspNet.Mvc;
+//using DevExtreme.AspNet.Mvc;
 using JETech.SIC.Core.Data.Entities;
 using JETech.SIC.Core.User.Helper;
 using JETech.SIC.Core.Exceptions;
