@@ -1,0 +1,2 @@
+
+docker build --tag jetechsic:1.0 .
