@@ -1,2 +1,4 @@
 
 docker build --tag jetechsic:1.0 .
+
+docker run --publish 8000:8080 --detach --name sic jetechsic:1.0
