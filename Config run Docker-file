@@ -1,4 +1,6 @@
 
-docker build --tag jetechsic:1.0 .
+***Build***
+docker build -t jetech.sic.web .
 
-docker run --publish 8000:8080 --detach --name sic jetechsic:1.0
+***Deploy***
+docker run -d -p 8080:80 --name sicweb jetech.sic.web
