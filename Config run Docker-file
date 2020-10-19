@@ -4,3 +4,6 @@ docker build -t jetech.sic.web .
 
 ***Deploy***
 docker run -d -p 8080:80 --name sicweb jetech.sic.web
+
+***Clean dungles inamge***
+docker rmi $(docker images -f "dangling=true" -q)
