@@ -10,14 +10,14 @@ namespace JETech.SIC.Web.Models
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Este campo {0} es requerido.")]
         [EmailAddress]
         [Display(Name = "Usuario")]
         public string Username { get;  set; }
 
+        [Required(ErrorMessage = "Este campo {0} es requerido.")]
         [Display(Name = "Contraseña")]        
-        [DataType(DataType.Password)]
-        [StringLength(20, MinimumLength = 6, ErrorMessage = "Este campos {0} es requerido.")]
+        [DataType(DataType.Password)]        
         public string Password { get;  set; }
 
         [Display(Name = "Recuerdame")]        
