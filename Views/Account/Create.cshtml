@@ -101,10 +101,10 @@
     <!-- Page level custom scripts -->
     @*<script src="~/AdminTemplateBlue/js/demo/chart-area-demo.js"></script>
         <script src="~/AdminTemplateBlue/js/demo/chart-pie-demo.js"></script>*@
-    @Html.RenderPartialAsync("_ValidationScriptsPartial");
-    @*@section Scripts {
+    
+    @section Scripts {
             @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        }*@
+    }
 </body>
 
 </html>

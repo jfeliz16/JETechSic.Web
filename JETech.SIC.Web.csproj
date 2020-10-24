@@ -48,8 +48,6 @@
   <ItemGroup>
     <Reference Include="JETech.SIC.Core">
       <HintPath>..\JETechSic.Core\bin\Debug\netcoreapp3.1\JETech.SIC.Core.dll</HintPath>
-      <Private></Private>
-      <EmbedInteropTypes></EmbedInteropTypes>
     </Reference>
   </ItemGroup>
   <ProjectExtensions>
