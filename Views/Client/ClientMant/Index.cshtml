@@ -5,23 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Clients</h3>
+<h3>Clientes</h3>
 <div>
-    <div class="row justify-content-end">
-        <p>
-            <a asp-action="Create" class="btn btn-primary">Create New</a>
-        </p>
-    </div>
+    <div class="header-form">
+        <div class="row justify-content-end">
+
+            @(Html.DevExtreme().Button()
+                .Icon("plus")
+                .Text("Nuevo")
+                .Type(ButtonType.Normal)
+                .OnClick(@<text>
+                            function(){ window.location = "@Url.Action("Create", "Client")"; }
+                        </text>)
+            )
+            @{/*
+                <p>
+                    <a asp-action="Create" class="btn btn-primary">Create New</a>
+                </p>
+              */
+            }
+
+
+        </div>
+    </div>    
 
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>                
                 <th>
                     @Html.DisplayNameFor(model => model.CellPhome)
                 </th>
@@ -36,11 +49,8 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>            
                     <td>
                         @Html.DisplayFor(modelItem => item.CellPhome)
                     </td>

@@ -11,6 +11,10 @@ body {
 #login-facebook:hover {
     background-color: #030356;
 }
+.header-form {
+    padding-right: 2em;
+    padding-bottom: 1em;
+}
 #login-google:hover {
     background-color: #7d0000;
 }

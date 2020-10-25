@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
@@ -49,8 +49,12 @@
     <Reference Include="JETech.SIC.Core">
       <HintPath>..\JETechSic.Core\bin\Debug\netcoreapp3.1\JETech.SIC.Core.dll</HintPath>
     </Reference>
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="20.1.6" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.6.1" />
   </ItemGroup>
   <ProjectExtensions>
-    <VisualStudio><UserProperties DismissedDevExtremeVersion="" TemplateFeatures="NETCORE" /></VisualStudio>
+    <VisualStudio>
+      <UserProperties DismissedDevExtremeVersion="" TemplateFeatures="NETCORE" />
+    </VisualStudio>
   </ProjectExtensions>
 </Project>
