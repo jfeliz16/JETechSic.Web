@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JETech.SIC.Web.Controllers.Client
 {
-    public class ClientController : Controller
+    public class ClientMantController : Controller
     {        
 
         private string GetPathView(string viewName)
@@ -72,11 +72,15 @@ namespace JETech.SIC.Web.Controllers.Client
         // POST: ClientController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
+        public ActionResult Create(AddClientViewModel model)
+        {            
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (!ModelState.IsValid)
+                {
+                    return View(GetPathView("Create"));
+                }
+                return RedirectToAction(GetPathView("Index"));
             }
             catch
             {

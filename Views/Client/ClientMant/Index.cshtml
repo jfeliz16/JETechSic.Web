@@ -5,29 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Clientes</h3>
+<h3>Clients</h3>
 <div>
     <div class="header-form">
         <div class="row justify-content-end">
-
-            @(Html.DevExtreme().Button()
+            <div class="header-form-item">
+                @(Html.DevExtreme().Button()
+                .Text("New")
                 .Icon("plus")
-                .Text("Nuevo")
+                .Type(ButtonType.Normal)
+                .OnClick(@<text>
+                            function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
+                         </text>)
+                )
+            </div>
+            <div class="header-form-item">
+                @(Html.DevExtreme().Button()
+                .Text("Refresh")
+                .Icon("refresh")
                 .Type(ButtonType.Normal)
                 .OnClick(@<text>
                             function(){ window.location = "@Url.Action("Create", "Client")"; }
-                        </text>)
-            )
+                         </text>)
+                )
+            </div>
+            <div class="header-form-item">
+                @(Html.DevExtreme().Button()                
+                .Icon("more")
+                .Type(ButtonType.Normal)
+                .OnClick(@<text>
+                            function(){ window.location = "@Url.Action("Create", "Client")"; }
+                         </text>)
+                )
+            </div>
+
+
             @{/*
-                <p>
-                    <a asp-action="Create" class="btn btn-primary">Create New</a>
-                </p>
-              */
+                      <p>
+                          <a asp-action="Create" class="btn btn-primary">Create New</a>
+                      </p>
+                    */
             }
 
 
         </div>
-    </div>    
+        </div>    
 
     <table class="table">
         <thead>
