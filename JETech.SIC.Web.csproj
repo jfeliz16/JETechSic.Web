@@ -46,6 +46,9 @@
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="JETech.NetCoreWeb">
+      <HintPath>..\..\JETech.NetCoreWeb\JETech.NetCoreWeb\bin\Debug\netcoreapp3.1\JETech.NetCoreWeb.dll</HintPath>
+    </Reference>
     <Reference Include="JETech.SIC.Core">
       <HintPath>..\JETechSic.Core\bin\Debug\netcoreapp3.1\JETech.SIC.Core.dll</HintPath>
     </Reference>

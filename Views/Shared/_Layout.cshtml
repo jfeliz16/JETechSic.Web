@@ -86,7 +86,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Basic</h6>
                         <a asp-action="Index" asp-controller="ClientMant" class="collapse-item">Clients</a>
-                    </div>
+                        <a asp-action="Index" asp-controller="ExamplesDevExtreme" class="collapse-item">Examples DevExtreme</a>
+                    </div>               
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Reports</h6>
                         <a class="collapse-item" href="buttons.html">Reporte Clientes</a>
@@ -156,7 +157,7 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
+                                            <button id="btn-search-form" class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DevExtreme.AspNet.Mvc;
 using JETech.SIC.Web.Models.Client;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using JETech.NetCoreWeb.Controls.Menu;
+using DevExtreme.AspNet.Data;
 
 namespace JETech.SIC.Web.Controllers.Client
 {
@@ -128,6 +131,27 @@ namespace JETech.SIC.Web.Controllers.Client
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public object GetActions(DataSourceLoadOptions loadOptions) {
+            IEnumerable<MenuItem> menuItems = new []
+            {
+                new MenuItem{                    
+                    icon = "more",
+                    items  = new[] {
+                        new MenuItem {
+                            text = "Enable//Disable"
+                        },
+                        new MenuItem {
+                            text = "Print",
+                            icon = "print"                            
+                        }
+                    } 
+                }
+            };
+
+            return DataSourceLoader.Load(menuItems, loadOptions);
         }
     }
 }

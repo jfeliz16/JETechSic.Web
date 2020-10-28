@@ -13,7 +13,7 @@
                 @(Html.DevExtreme().Button()
                 .Text("New")
                 .Icon("plus")
-                .Type(ButtonType.Normal)
+                .Type(ButtonType.Default)
                 .OnClick(@<text>
                             function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
                          </text>)
@@ -25,26 +25,49 @@
                 .Icon("refresh")
                 .Type(ButtonType.Normal)
                 .OnClick(@<text>
-                            function(){ window.location = "@Url.Action("Create", "Client")"; }
+                            function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
                          </text>)
                 )
             </div>
             <div class="header-form-item">
-                @(Html.DevExtreme().Button()                
-                .Icon("more")
+                @(Html.DevExtreme().Button()
+                .Text("Print")
+                .Icon("print")
                 .Type(ButtonType.Normal)
                 .OnClick(@<text>
-                            function(){ window.location = "@Url.Action("Create", "Client")"; }
+                            function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
                          </text>)
                 )
             </div>
+            @*<div class="header-form-item">
+            @(Html.DevExtreme().Button()
+            .Icon("more")
+            .Type(ButtonType.Normal)
+            .OnClick(@<text>
+                        function(){ window.location = "@Url.Action("Create", "Client")"; }
+                     </text>)
+            )
+        </div>*@
+            <div class="header-form-item">
+                @(Html.DevExtreme().Menu()
+                .ID("menu")
+                .DataSource(d => d.Mvc().LoadAction("GetActions"))
+                .HideSubmenuOnMouseLeave(false)
+                .OnItemClick("onActionClick")
+                .CssClass("dx-button dx-button-normal")
+                )
+                <div id="product-details" class="hidden">
+                    <div class="text"></div>
+                </div>
+            </div>
+
 
 
             @{/*
-                      <p>
-                          <a asp-action="Create" class="btn btn-primary">Create New</a>
-                      </p>
-                    */
+                          <p>
+                              <a asp-action="Create" class="btn btn-primary">Create New</a>
+                          </p>
+                        */
             }
 
 
@@ -90,3 +113,17 @@
     </table>
 </div>
 
+<script>  
+    function getMenuInstance() {
+        console.log("intancing menu");
+        return $("#menu").dxMenu("instance");
+    }
+    function onActionClick(data) {
+        var item = data.itemData;
+       
+        if (item.Name) {
+            $("#product-details").removeClass("hidden");        
+            $("#product-details > .text").text(item.Name);
+        }
+    }
+</script>
