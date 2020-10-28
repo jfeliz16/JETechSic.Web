@@ -39,27 +39,26 @@
                          </text>)
                 )
             </div>
-            @*<div class="header-form-item">
-            @(Html.DevExtreme().Button()
-            .Icon("more")
-            .Type(ButtonType.Normal)
-            .OnClick(@<text>
-                        function(){ window.location = "@Url.Action("Create", "Client")"; }
-                     </text>)
-            )
-        </div>*@
             <div class="header-form-item">
+                @(Html.DevExtreme().Button()
+                .Icon("more")
+                .Type(ButtonType.Normal)
+                .OnClick(@<text>
+                            function(){ window.location = "@Url.Action("Create", "Client")"; }
+                         </text>)
+                )
+            </div>
+            @*<div class="header-form-item">
                 @(Html.DevExtreme().Menu()
                 .ID("menu")
                 .DataSource(d => d.Mvc().LoadAction("GetActions"))
                 .HideSubmenuOnMouseLeave(false)
-                .OnItemClick("onActionClick")
-                .CssClass("dx-button dx-button-normal")
+                .OnItemClick("onActionClick")                 
                 )
                 <div id="product-details" class="hidden">
                     <div class="text"></div>
                 </div>
-            </div>
+            </div>*@
 
 
 
