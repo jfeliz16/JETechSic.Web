@@ -15,8 +15,11 @@ body {
     background-color: #7d0000;
 }
 .header-form {
-    padding-right: 10em;
-    padding-bottom: 1em;
+    padding-right: 2em;  
+}
+div.card-header {
+    padding-bottom: 0em !important;
+    padding-top: 0.5em !important;
 }
 .header-form-item {
     padding-left: 0.5em;

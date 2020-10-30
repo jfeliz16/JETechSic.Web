@@ -1,16 +1,21 @@
 ﻿@model IEnumerable<JETech.SIC.Web.Models.Client.ClientViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Clients";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Clients</h3>
-<div>
-    <div class="header-form">
-        <div class="row justify-content-end">
-            <div class="header-form-item">
-                @(Html.DevExtreme().Button()
+<div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-12 col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                @*<h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>*@
+                <h5 class="title-form">@(ViewData["Title"])</h5>
+                <div class="header-form">
+                    <div class="row justify-content-end">
+                        <div class="header-form-item">
+                            @(Html.DevExtreme().Button()
                 .Text("New")
                 .Icon("plus")
                 .Type(ButtonType.Default)
@@ -18,9 +23,9 @@
                             function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
                          </text>)
                 )
-            </div>
-            <div class="header-form-item">
-                @(Html.DevExtreme().Button()
+                        </div>
+                        <div class="header-form-item">
+                            @(Html.DevExtreme().Button()
                 .Text("Refresh")
                 .Icon("refresh")
                 .Type(ButtonType.Normal)
@@ -28,9 +33,9 @@
                             function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
                          </text>)
                 )
-            </div>
-            <div class="header-form-item">
-                @(Html.DevExtreme().Button()
+                        </div>
+                        <div class="header-form-item">
+                            @(Html.DevExtreme().Button()
                 .Text("Print")
                 .Icon("print")
                 .Type(ButtonType.Normal)
@@ -38,90 +43,100 @@
                             function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
                          </text>)
                 )
-            </div>
-            <div class="header-form-item">
-                @(Html.DevExtreme().Button()
+                        </div>
+                        <div class="header-form-item">
+                            @(Html.DevExtreme().Button()
                 .Icon("more")
                 .Type(ButtonType.Normal)
                 .OnClick(@<text>
                             function(){ window.location = "@Url.Action("Create", "Client")"; }
                          </text>)
                 )
-            </div>
-            @*<div class="header-form-item">
-                @(Html.DevExtreme().Menu()
-                .ID("menu")
-                .DataSource(d => d.Mvc().LoadAction("GetActions"))
-                .HideSubmenuOnMouseLeave(false)
-                .OnItemClick("onActionClick")                 
-                )
-                <div id="product-details" class="hidden">
-                    <div class="text"></div>
+                        </div>
+                        @*<div class="header-form-item">
+                    @(Html.DevExtreme().Menu()
+                    .ID("menu")
+                    .DataSource(d => d.Mvc().LoadAction("GetActions"))
+                    .HideSubmenuOnMouseLeave(false)
+                    .OnItemClick("onActionClick")
+                    )
+                    <div id="product-details" class="hidden">
+                        <div class="text"></div>
+                    </div>
+                </div>*@
+
+
+
+                        @{/*
+                                              <p>
+                                                  <a asp-action="Create" class="btn btn-primary">Create New</a>
+                                              </p>
+                                            */
+                        }
+
+
+                    </div>
                 </div>
-            </div>*@
+            </div>
 
+            <div>
+               
 
-
-            @{/*
-                          <p>
-                              <a asp-action="Create" class="btn btn-primary">Create New</a>
-                          </p>
-                        */
-            }
-
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FullName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CellPhome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StatusName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CellPhome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StatusName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
 
         </div>
-        </div>    
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.FullName)
-                </th>                
-                <th>
-                    @Html.DisplayNameFor(model => model.CellPhome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StatusName)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FullName)
-                    </td>            
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CellPhome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StatusName)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    </div>
 </div>
 
-<script>  
+
+
+<script>
     function getMenuInstance() {
         console.log("intancing menu");
         return $("#menu").dxMenu("instance");
     }
     function onActionClick(data) {
         var item = data.itemData;
-       
+
         if (item.Name) {
-            $("#product-details").removeClass("hidden");        
+            $("#product-details").removeClass("hidden");
             $("#product-details > .text").text(item.Name);
         }
     }

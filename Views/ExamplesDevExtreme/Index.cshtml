@@ -1,54 +1,53 @@
-﻿<div class="form">
-    <div>
-        <div class="label">Catalog:</div>
-        @(Html.DevExtreme().Menu()
-            .ID("menu")
-            .DataSource(d => d.Mvc().LoadAction("GetProducts"))
-            .HideSubmenuOnMouseLeave(false)
-            .OnItemClick("menuItem_click")
-        )
-        <div id="product-details" class="hidden">
-            <img src="" />
-            <div class="name"></div>
-            <div class="price"></div>
-        </div>
+﻿<div>
+    <div class="label">Catalog:</div>
+    @(Html.DevExtreme().Menu()
+                        .ID("menu")
+                        .DataSource(d => d.Mvc().LoadAction("GetProducts"))
+                        .HideSubmenuOnMouseLeave(false)
+                        .OnItemClick("menuItem_click")
+                        )
+    <div id="product-details" class="hidden">
+        <img src="" />
+        <div class="name"></div>
+        <div class="price"></div>
     </div>
-    <div class="options">
-        <div class="caption">Options</div>
-        <div class="option">
-            <div>Show First Submenu Mode</div>
-            @(Html.DevExtreme().SelectBox()
-                .DataSource(new JS("showSubmenuModes"))
-                .Value(new JS("showSubmenuModes[1]"))
-                .DisplayExpr("name")
-                .OnValueChanged("firstSubMenuMode_changed")
-            )
-        </div>
-        <div class="option">
-            <div>Orientation</div>
-            @(Html.DevExtreme().SelectBox()
-                .DataSource(new[] { "horizontal", "vertical" })
-                .Value("horizontal")
-                .OnValueChanged("menuOrientation_changed")
-            )
-        </div>
-        <div class="option">
-            <div>Submenu Direction</div>
-            @(Html.DevExtreme().SelectBox()
+</div>
+<div class="options">
+    <div class="caption">Options</div>
+    <div class="option">
+        <div>Show First Submenu Mode</div>
+        @(Html.DevExtreme().SelectBox()
+                            .DataSource(new JS("showSubmenuModes"))
+                            .Value(new JS("showSubmenuModes[1]"))
+                            .DisplayExpr("name")
+                            .OnValueChanged("firstSubMenuMode_changed")
+                            )
+    </div>
+    <div class="option">
+        <div>Orientation</div>
+        @(Html.DevExtreme().SelectBox()
+                            .DataSource(new[] { "horizontal", "vertical" })
+                            .Value("horizontal")
+                            .OnValueChanged("menuOrientation_changed")
+                            )
+    </div>
+    <div class="option">
+        <div>Submenu Direction</div>
+        @(Html.DevExtreme().SelectBox()
                 .DataSource(new[] { "auto", "rightOrBottom", "leftOrTop" })
                 .Value("auto")
                 .OnValueChanged("menuDirection_changed")
             )
-        </div>
-        <div class="option">
-            @(Html.DevExtreme().CheckBox()
+    </div>
+    <div class="option">
+        @(Html.DevExtreme().CheckBox()
                 .Value(false)
                 .Text("Hide Submenu on Mouse Leave")
                 .OnValueChanged("checkBoxValue_changed")
             )
-        </div>
     </div>
 </div>
+
 
 <script>
     var showSubmenuModes = [{
