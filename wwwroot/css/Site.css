@@ -15,11 +15,8 @@ body {
     background-color: #7d0000;
 }
 .header-form {
-    padding-right: 2em;  
-}
-div.card-header {
-    padding-bottom: 0em !important;
-    padding-top: 0.5em !important;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
 }
 .header-form-item {
     padding-left: 0.5em;
@@ -38,4 +35,8 @@ div.card-header {
 }
 #btn-search-form {
     background-color:beige;
+}
+div.card-header {
+    padding-bottom: 0em !important;
+    padding-top: 0.5em !important;
 }

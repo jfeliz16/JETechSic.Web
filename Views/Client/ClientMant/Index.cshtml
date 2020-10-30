@@ -16,62 +16,62 @@
                     <div class="row justify-content-end">
                         <div class="header-form-item">
                             @(Html.DevExtreme().Button()
-                .Text("New")
-                .Icon("plus")
-                .Type(ButtonType.Default)
-                .OnClick(@<text>
-                            function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
-                         </text>)
-                )
+                            .Text("New")
+                            .Icon("plus")
+                            .Type(ButtonType.Default)
+                            .OnClick(@<text>
+                                        function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
+                                     </text>)
+                            )
                         </div>
                         <div class="header-form-item">
                             @(Html.DevExtreme().Button()
-                .Text("Refresh")
-                .Icon("refresh")
-                .Type(ButtonType.Normal)
-                .OnClick(@<text>
-                            function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
-                         </text>)
-                )
+                            .Text("Refresh")
+                            .Icon("refresh")
+                            .Type(ButtonType.Normal)
+                            .OnClick(@<text>
+                                        function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
+                                     </text>)
+                            )
                         </div>
                         <div class="header-form-item">
                             @(Html.DevExtreme().Button()
-                .Text("Print")
-                .Icon("print")
-                .Type(ButtonType.Normal)
-                .OnClick(@<text>
-                            function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
-                         </text>)
-                )
+                            .Text("Print")
+                            .Icon("print")
+                            .Type(ButtonType.Normal)
+                            .OnClick(@<text>
+                                        function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
+                                     </text>)
+                            )
                         </div>
                         <div class="header-form-item">
                             @(Html.DevExtreme().Button()
-                .Icon("more")
-                .Type(ButtonType.Normal)
-                .OnClick(@<text>
-                            function(){ window.location = "@Url.Action("Create", "Client")"; }
-                         </text>)
-                )
+                            .Icon("more")
+                            .Type(ButtonType.Normal)
+                            .OnClick(@<text>
+                                        function(){ window.location = "@Url.Action("Create", "Client")"; }
+                                     </text>)
+                            )
                         </div>
                         @*<div class="header-form-item">
-                    @(Html.DevExtreme().Menu()
-                    .ID("menu")
-                    .DataSource(d => d.Mvc().LoadAction("GetActions"))
-                    .HideSubmenuOnMouseLeave(false)
-                    .OnItemClick("onActionClick")
-                    )
-                    <div id="product-details" class="hidden">
-                        <div class="text"></div>
-                    </div>
-                </div>*@
+                                @(Html.DevExtreme().Menu()
+                                .ID("menu")
+                                .DataSource(d => d.Mvc().LoadAction("GetActions"))
+                                .HideSubmenuOnMouseLeave(false)
+                                .OnItemClick("onActionClick")
+                                )
+                                <div id="product-details" class="hidden">
+                                    <div class="text"></div>
+                                </div>
+                            </div>*@
 
 
 
                         @{/*
-                                              <p>
-                                                  <a asp-action="Create" class="btn btn-primary">Create New</a>
-                                              </p>
-                                            */
+                                                            <p>
+                                                                <a asp-action="Create" class="btn btn-primary">Create New</a>
+                                                            </p>
+                                                          */
                         }
 
 
@@ -80,7 +80,7 @@
             </div>
 
             <div>
-               
+
 
                 <table class="table">
                     <thead>
