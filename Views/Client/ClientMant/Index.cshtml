@@ -53,17 +53,18 @@
                                      </text>)
                             )
                         </div>
-                        @*<div class="header-form-item">
+                        <div class="header-form-item">
                                 @(Html.DevExtreme().Menu()
                                 .ID("menu")
                                 .DataSource(d => d.Mvc().LoadAction("GetActions"))
                                 .HideSubmenuOnMouseLeave(false)
-                                .OnItemClick("onActionClick")
+                                .OnItemClick("onActionClick")  
+                                .CssClass("jet-menu-button")
                                 )
                                 <div id="product-details" class="hidden">
                                     <div class="text"></div>
                                 </div>
-                            </div>*@
+                            </div>
 
 
 
