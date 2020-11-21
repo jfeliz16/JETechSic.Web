@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<JETech.SIC.Web.Models.Client.ClientViewModel>
-
+@using JETech.SIC.Web.Models.Client;
 @{
     ViewData["Title"] = "Clients";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -44,35 +44,35 @@
                                      </text>)
                             )
                         </div>
+                        @*<div class="header-form-item">
+                                @(Html.DevExtreme().Button()
+                                .Icon("more")
+                                .Type(ButtonType.Normal)
+                                .OnClick(@<text>
+                                            function(){ window.location = "@Url.Action("Create", "Client")"; }
+                                         </text>)
+                                )
+                            </div>*@
                         <div class="header-form-item">
-                            @(Html.DevExtreme().Button()
-                            .Icon("more")
-                            .Type(ButtonType.Normal)
-                            .OnClick(@<text>
-                                        function(){ window.location = "@Url.Action("Create", "Client")"; }
-                                     </text>)
-                            )
-                        </div>
-                        <div class="header-form-item">
-                                @(Html.DevExtreme().Menu()
+                            @(Html.DevExtreme().Menu()
                                 .ID("menu")
                                 .DataSource(d => d.Mvc().LoadAction("GetActions"))
                                 .HideSubmenuOnMouseLeave(false)
-                                .OnItemClick("onActionClick")  
+                                .OnItemClick("onActionClick")
                                 .CssClass("jet-menu-button")
                                 )
-                                <div id="product-details" class="hidden">
-                                    <div class="text"></div>
-                                </div>
+                            <div id="product-details" class="hidden">
+                                <div class="text"></div>
                             </div>
+                        </div>
 
 
 
                         @{/*
-                                                            <p>
-                                                                <a asp-action="Create" class="btn btn-primary">Create New</a>
-                                                            </p>
-                                                          */
+                                                              <p>
+                                                                  <a asp-action="Create" class="btn btn-primary">Create New</a>
+                                                              </p>
+                                                            */
                         }
 
 
@@ -81,9 +81,23 @@
             </div>
 
             <div>
+                @(Html.DevExtreme().DataGrid<ClientViewModel>()
+                    .ID("gridClients")
+                    .ShowBorders(true)                    
+                    .FilterRow(filter => filter
+                        .Visible(true)
+                        .ApplyFilter(GridApplyFilterMode.OnClick)
+                        .ShowOperationChooser(false))                    
+                    .DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))                        
+                    .Columns(columns => {
+                        columns.AddFor(c => c.FirstName);
+                        columns.AddFor(c => c.LastName);
+                        columns.AddFor(c => c.CellPhome);
+                        columns.AddFor(c => c.StatusName);
+                    })
+                )
 
-
-                <table class="table">
+                @*<table class="table">
                     <thead>
                         <tr>
                             <th>
@@ -119,7 +133,7 @@
                             </tr>
                         }
                     </tbody>
-                </table>
+                </table>*@
             </div>
 
         </div>
