@@ -83,70 +83,37 @@
             <div>
                 @(Html.DevExtreme().DataGrid<ClientViewModel>()
                     .ID("gridClients")
-                    .ShowBorders(true)                    
+                    .ShowBorders(true)
                     .FilterRow(filter => filter
                         .Visible(true)
-                        .ApplyFilter(GridApplyFilterMode.OnClick)
-                        .ShowOperationChooser(false))                    
-                    .DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))                        
+                        .ApplyFilter(GridApplyFilterMode.Auto)
+                        .ShowOperationChooser(true))
+                    .DataSource( new JS("store"))
+                    //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
+                    .FocusedRowEnabled(true)
+                    .Paging(paging => paging.PageSize(10))
+                    .Pager(pager =>
+                    {                     
+                        pager.ShowInfo(true);
+                    })
                     .Columns(columns => {
+                        columns.AddFor(c => c.Id);
                         columns.AddFor(c => c.FirstName);
                         columns.AddFor(c => c.LastName);
                         columns.AddFor(c => c.CellPhome);
                         columns.AddFor(c => c.StatusName);
                     })
                 )
-
-                @*<table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.FullName)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.CellPhome)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.StatusName)
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FullName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CellPhome)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.StatusName)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>*@
             </div>
-
         </div>
     </div>
 </div>
-
-
-
 <script>
     function getMenuInstance() {
         console.log("intancing menu");
         return $("#menu").dxMenu("instance");
-    }
+    };
+
     function onActionClick(data) {
         var item = data.itemData;
 
@@ -154,5 +121,51 @@
             $("#product-details").removeClass("hidden");
             $("#product-details > .text").text(item.Name);
         }
+    };
+
+    function isNotEmpty(value) {
+        return value !== undefined && value !== null && value !== "";
     }
+
+    var store = new DevExpress.data.CustomStore({
+        key: "Id",
+        load: function (loadOptions) {
+            var deferred = $.Deferred(),
+                args = {};
+
+            [
+                "skip",
+                "take",
+                "requireTotalCount",
+                "requireGroupCount",
+                "sort",
+                "filter",
+                "totalSummary",
+                "group",
+                "groupSummary"
+            ].forEach(function (i) {
+                if (i in loadOptions && isNotEmpty(loadOptions[i]))
+                    args[i] = JSON.stringify(loadOptions[i]);
+            });
+            $.ajax({
+                url: "http://localhost:59869/api/ClientMant",
+                dataType: "json",
+                data: args,
+                success: function (result) {
+                    deferred.resolve(result);
+                    /*deferred.resolve(result.data, {
+                        totalCount: result.totalCount,
+                        summary: result.summary,
+                        groupCount: result.groupCount
+                    }*/
+                },
+                error: function () {
+                    deferred.reject("Data Loading Errorrr");
+                },
+                timeout: 5000
+            });
+
+            return deferred.promise();
+        }
+    });
 </script>

@@ -53,8 +53,8 @@
     <Reference Include="JETech.SIC.Core">
       <HintPath>..\JETechSic.Core\bin\Debug\netcoreapp3.1\JETech.SIC.Core.dll</HintPath>
     </Reference>
-    <PackageReference Include="DevExtreme.AspNet.Core" Version="20.1.6" />
-    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.6.1" />
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="20.2.3" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.7.1" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

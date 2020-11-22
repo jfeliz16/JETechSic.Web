@@ -20,6 +20,7 @@ namespace JETech.SIC.Web.Controllers.Api.Client
             {
                 new ClientViewModel
                 {
+                    Id = 1,
                     FullName = "Jose Feliz",
                     FirstName = "Jose",
                     LastName = "Feliz",
@@ -28,6 +29,7 @@ namespace JETech.SIC.Web.Controllers.Api.Client
                 },
                 new ClientViewModel
                 {
+                    Id = 2,
                     FullName = "Manuel Almonte",
                     FirstName = "Manuel",
                     LastName = "Almonte",
@@ -36,6 +38,7 @@ namespace JETech.SIC.Web.Controllers.Api.Client
                 },
                 new ClientViewModel
                 {
+                    Id = 3,
                     FullName = "Miladys Santana",
                     FirstName = "Miladys",
                     LastName = "Santana",
@@ -44,6 +47,7 @@ namespace JETech.SIC.Web.Controllers.Api.Client
                 },
                 new ClientViewModel
                 {
+                    Id = 4,
                     FullName = "Andrick Lora",
                     FirstName = "Andrick",
                     LastName = "Lora",
@@ -51,15 +55,19 @@ namespace JETech.SIC.Web.Controllers.Api.Client
                 }
             };
 
+            int id = 5;
+
             for (int i = 0; i < 50; i++)
             {
                 listClient.Add(new ClientViewModel
                 {
+                    Id = id,
                     FullName = "Andrick Lora",
                     FirstName = "Andrick",
                     LastName = "Lora",
                     StatusName = "ACTIVO"
                 });
+                id += 1;
             }
 
             return Ok(listClient);

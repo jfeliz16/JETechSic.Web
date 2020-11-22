@@ -51,3 +51,11 @@ div.card-header {
     color: #333;
     height: 100%;
 }
+#btn-search {
+    background-color: #ddd;
+}
+.dx-datagrid-rowsview .dx-row-focused.dx-data-row .dx-command-edit:not(.dx-focused) .dx-link, .dx-datagrid-rowsview .dx-row-focused.dx-data-row > td:not(.dx-focused), .dx-datagrid-rowsview .dx-row-focused.dx-data-row > tr > td:not(.dx-focused) {
+    background-color: #ececec;
+    color: #000;
+    border-color: #ddd;
+}
