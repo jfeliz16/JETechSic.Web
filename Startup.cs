@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JETech.SIC.Core.Clients.Interfaces;
+using JETech.SIC.Core.Clients.Services;
 using JETech.SIC.Core.Data.Entities;
 using JETech.SIC.Core.User.Helper;
 using JETech.SIC.Core.User.Interfaces;
@@ -46,15 +48,14 @@ namespace JETech_SIC_Web
                 config.Password.RequireUppercase = false;
             }).AddEntityFrameworkStores<DataContext>();
 
-           
-
-            services.AddScoped<IUserService,UserService>();
-            services.AddScoped<IUserConverterHelper,UserConverterHelper>();
-
             // Add framework services.
             services
                 .AddControllersWithViews()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+            services.AddScoped<IUserService,UserService>();
+            services.AddScoped<IUserConverterHelper,UserConverterHelper>();
+            services.AddScoped<IClientService, ClientService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

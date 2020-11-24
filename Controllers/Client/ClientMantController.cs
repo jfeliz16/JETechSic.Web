@@ -59,49 +59,7 @@ namespace JETech.SIC.Web.Controllers.Client
 
             return View(GetPathView("Index"));
         }
-
-        //[HttpGet]
-        //public ActionResult Get()
-        //{
-        //    List<ClientViewModel> listClient = new List<ClientViewModel>
-        //    {
-        //        new ClientViewModel
-        //        {
-        //            FullName = "Jose Feliz",
-        //            FirstName = "Jose",
-        //            LastName = "Feliz",
-        //            CellPhome = "809-999-9999",
-        //            StatusName = "ACTIVO"
-        //        },
-        //        new ClientViewModel
-        //        {
-        //            FullName = "Manuel Almonte",
-        //            FirstName = "Manuel",
-        //            LastName = "Almonte",
-        //            CellPhome = "809-999-9999",
-        //            StatusName = "ACTIVO"
-        //        },
-        //        new ClientViewModel
-        //        {
-        //            FullName = "Miladys Santana",
-        //            FirstName = "Miladys",
-        //            LastName = "Santana",
-        //            CellPhome = "809-999-9999",
-        //            StatusName = "ACTIVO"
-        //        },
-        //        new ClientViewModel
-        //        {
-        //            FullName = "Andrick Lora",
-        //            FirstName = "Andrick",
-        //            LastName = "Lora",
-        //            StatusName = "ACTIVO"
-        //        }
-        //    };
-
-        //    return listClient;
-        //}
-
-        // GET: ClientController/Details/5
+              
         public ActionResult Details(int id)
         {
             return View();
