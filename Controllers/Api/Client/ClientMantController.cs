@@ -22,19 +22,21 @@ namespace JETech.SIC.Web.Controllers.Api.Client
             _clientService = clientService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get(ActionQueryArgs<ClientModel> args)
+        [HttpGet("{take}")]
+        public async Task<IActionResult> Get(int? take)
+            //public async Task<IActionResult> Get(ActionQueryArgs<ClientModel> args)
         {
-            return Ok( await _clientService.GetClients(args));
+            //return Ok( await _clientService.GetClients(args));
+            return Ok();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            ActionQueryArgs<ClientModel> args = new ActionQueryArgs<ClientModel>();
+        //[HttpGet]
+        //public async Task<IActionResult> Get()
+        //{
+        //    ActionQueryArgs<ClientModel> args = new ActionQueryArgs<ClientModel>();
 
-            return Ok(await _clientService.GetClients(args));
-        }
+        //    return Ok(await _clientService.GetClients(args));
+        //}
 
         [HttpGet("GetName")]
         public IActionResult GetName() {

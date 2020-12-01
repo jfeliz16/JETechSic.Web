@@ -132,7 +132,9 @@
         load: function (loadOptions) {
             var deferred = $.Deferred(),
                 args = {};
+            var argsData = {Id:0};
 
+            /*
             [
                 "skip",
                 "take",
@@ -146,11 +148,13 @@
             ].forEach(function (i) {
                 if (i in loadOptions && isNotEmpty(loadOptions[i]))
                     args[i] = JSON.stringify(loadOptions[i]);
-            });
+            });*/
             $.ajax({
-                url: "http://localhost:59869/api/ClientMant",
+                type: 'GET',
+                url: "https://localhost:44393/Api/ClientMant/",
                 dataType: "json",
-                data: args,
+                contentType: "application/json; charset=utf-8",
+                data: { "2" },
                 success: function (result) {
                     deferred.resolve(result);
                     /*deferred.resolve(result.data, {
@@ -160,7 +164,7 @@
                     }*/
                 },
                 error: function () {
-                    deferred.reject("Data Loading Errorrr");
+                    deferred.reject("Data Loading Error");
                 },
                 timeout: 5000
             });
