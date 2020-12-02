@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JETech.SIC.Web", "JETech.SI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JETech.SIC.Core", "..\JETechSic.Core\JETech.SIC.Core.csproj", "{B9278EB1-31A7-4146-9AFC-8A324094C8A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JETech.NetCoreWeb", "..\..\NetCoreWeb\JETech.NetCoreWeb\JETech.NetCoreWeb.csproj", "{90D88C8D-74C3-403F-B639-E35FF17E9A74}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JETechSic.Core.UnitTest", "..\JETechSic.Core.UnitTest\JETechSic.Core.UnitTest.csproj", "{F1EA2D72-9A21-4262-A89E-CFAA34363213}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JETech.NetCoreWeb", "..\..\NetCoreWeb\JETech.NetCoreWeb\JETech.NetCoreWeb.csproj", "{CFFF4587-B0CF-43F1-BC1D-31DD915D408D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{B9278EB1-31A7-4146-9AFC-8A324094C8A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9278EB1-31A7-4146-9AFC-8A324094C8A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9278EB1-31A7-4146-9AFC-8A324094C8A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90D88C8D-74C3-403F-B639-E35FF17E9A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90D88C8D-74C3-403F-B639-E35FF17E9A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90D88C8D-74C3-403F-B639-E35FF17E9A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90D88C8D-74C3-403F-B639-E35FF17E9A74}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F1EA2D72-9A21-4262-A89E-CFAA34363213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F1EA2D72-9A21-4262-A89E-CFAA34363213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1EA2D72-9A21-4262-A89E-CFAA34363213}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1EA2D72-9A21-4262-A89E-CFAA34363213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFFF4587-B0CF-43F1-BC1D-31DD915D408D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFFF4587-B0CF-43F1-BC1D-31DD915D408D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFFF4587-B0CF-43F1-BC1D-31DD915D408D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFFF4587-B0CF-43F1-BC1D-31DD915D408D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

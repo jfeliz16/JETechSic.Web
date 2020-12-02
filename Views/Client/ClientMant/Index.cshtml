@@ -87,7 +87,7 @@
                     .FilterRow(filter => filter
                         .Visible(true)
                         .ApplyFilter(GridApplyFilterMode.Auto)
-                        .ShowOperationChooser(true))
+                        .ShowOperationChooser(false))
                     .DataSource( new JS("store"))
                     //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
                     .FocusedRowEnabled(true)
@@ -150,13 +150,14 @@
                     args[i] = JSON.stringify(loadOptions[i]);
             });*/
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: "https://localhost:44393/Api/ClientMant/",
                 dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                data: { "2" },
+                contentType: "application/json; charset=utf-8",           
+                data: JSON.stringify(args),
                 success: function (result) {
-                    deferred.resolve(result);
+                    alert("call");
+                    deferred.resolve(result.Data);
                     /*deferred.resolve(result.data, {
                         totalCount: result.totalCount,
                         summary: result.summary,
