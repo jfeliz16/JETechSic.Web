@@ -25,7 +25,9 @@ namespace JETech.SIC.Web.Controllers.Api.Client
         [HttpPost]        
         public async Task<IActionResult> Get(ActionQueryArgs<ClientModel> args)
         {
-            return Ok( await _clientService.GetClients(args));          
+            var result = await _clientService.GetClients(args);
+
+            return Ok(result);          
         }
 
         //[HttpGet]

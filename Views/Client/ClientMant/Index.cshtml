@@ -84,17 +84,19 @@
                 @(Html.DevExtreme().DataGrid<ClientViewModel>()
                     .ID("gridClients")
                     .ShowBorders(true)
+                    .RemoteOperations(c => c.GroupPaging(true)) //Enabled pagination
                     .FilterRow(filter => filter
                         .Visible(true)
                         .ApplyFilter(GridApplyFilterMode.Auto)
-                        .ShowOperationChooser(false))
+                        .ShowOperationChooser(true))
                     .DataSource( new JS("store"))
-                    //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
-                    .FocusedRowEnabled(true)
-                    .Paging(paging => paging.PageSize(10))
+                                        //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
+                    .FocusedRowEnabled(true)                    
+                    .Paging(paging => 
+                        paging.PageSize(10))
                     .Pager(pager =>
                     {                     
-                        pager.ShowInfo(true);
+                        pager.ShowInfo(true);                        
                     })
                     .Columns(columns => {
                         columns.AddFor(c => c.Id);
@@ -129,12 +131,11 @@
 
     var store = new DevExpress.data.CustomStore({
         key: "Id",
+        //remoteOperations: { groupPaging: true },
         load: function (loadOptions) {
             var deferred = $.Deferred(),
                 args = {};
-            var argsData = {Id:0};
-
-            /*
+           
             [
                 "skip",
                 "take",
@@ -148,23 +149,33 @@
             ].forEach(function (i) {
                 if (i in loadOptions && isNotEmpty(loadOptions[i]))
                     args[i] = JSON.stringify(loadOptions[i]);
-            });*/
+            });
+           
+            var argsData = {
+                "PageArgs": {
+                    "Skip": parseInt(args.skip),                    
+                    "Size": parseInt(args.take)
+                }
+            };
+
             $.ajax({
                 type: 'POST',
                 url: "https://localhost:44393/Api/ClientMant/",
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",           
-                data: JSON.stringify(args),
+                data: JSON.stringify(argsData),
                 success: function (result) {
-                    alert("call");
-                    deferred.resolve(result.Data);
-                    /*deferred.resolve(result.data, {
-                        totalCount: result.totalCount,
-                        summary: result.summary,
-                        groupCount: result.groupCount
-                    }*/
+                    //alert("call");
+                    //deferred.resolve(result.Data);
+                   
+                    deferred.resolve(result.Data, {
+                        totalCount: result.TotalCount
+                        //summary: result.summary,
+                        
+                    });
                 },
-                error: function () {
+                error: function (error) {
+                   
                     deferred.reject("Data Loading Error");
                 },
                 timeout: 5000
