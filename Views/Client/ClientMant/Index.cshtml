@@ -29,9 +29,7 @@
                             .Text("Refresh")
                             .Icon("refresh")
                             .Type(ButtonType.Normal)
-                            .OnClick(@<text>
-                                        function(){ window.location = "@Url.Action("Create", "ClientMant")"; }
-                                     </text>)
+                            .OnClick("onRefreshGrid")
                             )
                         </div>
                         <div class="header-form-item">
@@ -65,17 +63,6 @@
                                 <div class="text"></div>
                             </div>
                         </div>
-
-
-
-                        @{/*
-                                                              <p>
-                                                                  <a asp-action="Create" class="btn btn-primary">Create New</a>
-                                                              </p>
-                                                            */
-                        }
-
-
                     </div>
                 </div>
             </div>
@@ -90,13 +77,15 @@
                         .ApplyFilter(GridApplyFilterMode.Auto)
                         .ShowOperationChooser(true))
                     .DataSource( new JS("store"))
-                                        //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
-                    .FocusedRowEnabled(true)                    
-                    .Paging(paging => 
+                    //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
+                    .FocusedRowEnabled(true)
+                    .Paging(paging =>
                         paging.PageSize(10))
                     .Pager(pager =>
-                    {                     
-                        pager.ShowInfo(true);                        
+                    {
+                        pager.ShowPageSizeSelector(true);
+                        pager.AllowedPageSizes(new[] { 5, 10, 20 });
+                        pager.ShowInfo(true);
                     })
                     .Columns(columns => {
                         columns.AddFor(c => c.Id);
@@ -123,6 +112,12 @@
             $("#product-details").removeClass("hidden");
             $("#product-details > .text").text(item.Name);
         }
+    };
+
+    function onRefreshGrid() {
+        alert("onRefresh");      
+        var dataGrid = $("#gridClients").dxDataGrid("instance");
+        dataGrid.refresh()
     };
 
     function isNotEmpty(value) {
@@ -165,9 +160,9 @@
                 contentType: "application/json; charset=utf-8",           
                 data: JSON.stringify(argsData),
                 success: function (result) {
-                    //alert("call");
+                    
                     //deferred.resolve(result.Data);
-                   
+                    
                     deferred.resolve(result.Data, {
                         totalCount: result.TotalCount
                         //summary: result.summary,
