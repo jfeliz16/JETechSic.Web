@@ -46,7 +46,7 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Bienvenido!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
                                     </div>
 
                                     <form asp-action="Login">
@@ -66,21 +66,24 @@
                                                 <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
                                             </label>
                                         </div>
-                                        <input type="submit" value="Acceder" class="btn btn-primary btn-user btn-block" />
+                                        <input type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
+                                        @*/
                                         <hr />
+
                                         <a href="index.html" id="login-google" class="btn btn-outline-danger btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Acceder con Google
                                         </a>
                                         <a href="index.html" id="login-facebook" class="btn btn-outline-dark btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Acceder con Facebook
                                         </a>
+                                        /*@
                                     </form>
                                     <hr />
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Olvidaste la contraseña?</a>
+                                        <a class="small" href="forgot-password.html">Forgot your password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" asp-action="Create" asp-controller="Account">Registrarse!</a>
+                                        <a class="small" asp-action="Create" asp-controller="Account">Register!</a>
                                     </div>
                                 </div>
                             </div>
