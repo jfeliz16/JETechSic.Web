@@ -74,7 +74,7 @@
                     .RemoteOperations(c => c.GroupPaging(true)) //Enabled pagination
                     .FilterRow(filter => filter
                         .Visible(true)
-                        .ApplyFilter(GridApplyFilterMode.Auto)
+                        .ApplyFilter(GridApplyFilterMode.Auto)                        
                         .ShowOperationChooser(true))
                     .DataSource( new JS("store"))
                     //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
@@ -148,6 +148,7 @@
             alert(JSON.stringify(args));
            
             var argsData = {
+                "CondictionString": args.filter,
                 "PageArgs": {
                     "Skip": parseInt(args.skip),                    
                     "Size": parseInt(args.take)

@@ -25,6 +25,12 @@ namespace JETech.SIC.Web.Controllers.Api.Client
         [HttpPost]        
         public async Task<IActionResult> Get(ActionQueryArgs<ClientModel> args)
         {
+            if (!string.IsNullOrEmpty(args.CondictionString))
+            {
+                var filter = Newtonsoft.Json.JsonConvert.DeserializeObject(args.CondictionString);
+                args.Condiction = JETech.DevExtremeCore.Converter.FilterToExpresion<ClientModel>(filter.ToString());
+            }
+
             var result = await _clientService.GetClients(args);
 
             return Ok(result);          

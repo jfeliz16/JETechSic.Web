@@ -61,30 +61,35 @@
                                             <input asp-for="Password" class="form-control" />
                                             <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
-                                            </label>
+                                        <div class="form-group">
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                                                </label>
+                                            </div>
                                         </div>
-                                        <input type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <div class="text-right">
+                                                    <a class="small" href="#">Forgot your password?</a>
+                                                </div>                                                
+                                            </div>
+                                        </div>                                    
+                                        <input type="submit" value="Login" class="btn btn-success btn-user btn-block" />
                                         @*/
-                                        <hr />
+        <hr />
 
-                                        <a href="index.html" id="login-google" class="btn btn-outline-danger btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Acceder con Google
-                                        </a>
-                                        <a href="index.html" id="login-facebook" class="btn btn-outline-dark btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Acceder con Facebook
-                                        </a>
-                                        /*@
+        <a href="index.html" id="login-google" class="btn btn-outline-danger btn-user btn-block">
+            <i class="fab fa-google fa-fw"></i> Acceder con Google
+        </a>
+        <a href="index.html" id="login-facebook" class="btn btn-outline-dark btn-user btn-block">
+            <i class="fab fa-facebook-f fa-fw"></i> Acceder con Facebook
+        </a>
+        /*@
                                     </form>
                                     <hr />
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot your password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" asp-action="Create" asp-controller="Account">Register!</a>
-                                    </div>
+                                    <input type="submit" value="Register" class="btn btn-primary btn-user btn-block" />
+                                    
                                 </div>
                             </div>
                         </div>
