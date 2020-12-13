@@ -21,12 +21,12 @@ namespace JETech.SIC.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly DataContext _context;
+        private readonly SicDbContext _context;
         private readonly IUserService _userManager;
         private readonly IUserConverterHelper _userConverterHelper;
 
         public AccountController(
-            DataContext context,
+            SicDbContext context,
             IUserService userManager,
             IUserConverterHelper userConverterHelper)
         {

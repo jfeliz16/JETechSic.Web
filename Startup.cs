@@ -33,7 +33,7 @@ namespace JETech_SIC_Web
         {
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
-            services.AddDbContext<DataContext>(config =>
+            services.AddDbContext<SicDbContext>(config =>
             {
                 config.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
@@ -46,7 +46,7 @@ namespace JETech_SIC_Web
                 config.Password.RequireLowercase = false;
                 config.Password.RequireNonAlphanumeric = false;
                 config.Password.RequireUppercase = false;
-            }).AddEntityFrameworkStores<DataContext>();
+            }).AddEntityFrameworkStores<SicDbContext>();
 
             // Add framework services.
             services

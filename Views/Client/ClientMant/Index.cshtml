@@ -91,7 +91,7 @@
                         columns.AddFor(c => c.Id);
                         columns.AddFor(c => c.FirstName);
                         columns.AddFor(c => c.LastName);
-                        columns.AddFor(c => c.CellPhome);
+                        columns.AddFor(c => c.CellPhone);
                         columns.AddFor(c => c.StatusName);
                     })
                 )
@@ -145,7 +145,7 @@
                     args[i] = JSON.stringify(loadOptions[i]);
             });
 
-            alert(JSON.stringify(args));
+            //alert(JSON.stringify(args));
            
             var argsData = {
                 "CondictionString": args.filter,

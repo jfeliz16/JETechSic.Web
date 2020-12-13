@@ -42,7 +42,7 @@ namespace JETech.SIC.Web.Models.Client
 
         [Display(Name = "Cell Phone")]
         [MaxLength(10, ErrorMessage = Global.Messages.MaxLengthVal)]
-        public string CellPhome { get; set; }
+        public string CellPhone { get; set; }
 
         [Display(Name = "Fax")]
         [MaxLength(10, ErrorMessage = Global.Messages.MaxLengthVal)]
