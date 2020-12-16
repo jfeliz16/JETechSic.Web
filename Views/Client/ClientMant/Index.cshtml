@@ -75,7 +75,7 @@
                     .FilterRow(filter => filter
                         .Visible(true)
                         .ApplyFilter(GridApplyFilterMode.Auto)                        
-                        .ShowOperationChooser(true))
+                        .ShowOperationChooser(false))
                     .DataSource( new JS("store"))
                     //.DataSource(d => d.StaticJson().Url("~/api/ClientMant/").Key("Id"))
                     .FocusedRowEnabled(true)
