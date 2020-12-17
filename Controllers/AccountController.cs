@@ -10,12 +10,12 @@ using System.Security.Cryptography;
 //using DevExtreme.AspNet.Mvc;
 using JETech.SIC.Core.Data.Entities;
 using JETech.SIC.Core.User.Helper;
-using JETech.SIC.Core.Exceptions;
 using JETech.SIC.Web.Helper.User;
 using JETech.SIC.Core.User.Services;
 using JETech.SIC.Core.User.Interfaces;
 using JETech.SIC.Core.Global;
 using JETech.SIC.Web.Helper;
+using JETech.NetCoreWeb.Exceptions;
 
 namespace JETech.SIC.Web.Controllers
 {
@@ -53,7 +53,7 @@ namespace JETech.SIC.Web.Controllers
                     {
                         return RedirectToAction("Index", "Home");
                     }
-                    ModelState.AddModelError("", Messages.InvalidUser);
+                    ModelState.AddModelError("", new JETechException("Invalid User.").AppMessage);
                 }
                 catch (Exception ex)
                 {

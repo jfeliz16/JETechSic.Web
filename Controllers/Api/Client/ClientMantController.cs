@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JETech.NetCoreWeb;
+using JETech.NetCoreWeb.Types;
 using JETech.SIC.Core.Clients.Interfaces;
 using JETech.SIC.Core.Clients.Models;
 using JETech.SIC.Web.Models.Client;
