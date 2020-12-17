@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using JETech.SIC.Core.Clients.Interfaces;
 using JETech.SIC.Core.Clients.Services;
+using JETech.SIC.Core.Data;
 using JETech.SIC.Core.Data.Entities;
 using JETech.SIC.Core.User.Helper;
 using JETech.SIC.Core.User.Interfaces;
@@ -53,6 +54,7 @@ namespace JETech_SIC_Web
                 .AddControllersWithViews()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
+            services.AddTransient<SeedDb>();
             services.AddScoped<IUserService,UserService>();
             services.AddScoped<IUserConverterHelper,UserConverterHelper>();
             services.AddScoped<IClientService, ClientService>();
