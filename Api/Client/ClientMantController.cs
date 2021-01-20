@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using JETech.NetCoreWeb.Exceptions;
 
-namespace JETech.SIC.Web.Controllers.Api.Client
+namespace JETech.SIC.Web.Api.Client
 {
     [Route("api/[controller]")]
     [ApiController]
