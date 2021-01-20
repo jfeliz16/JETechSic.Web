@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using JETech.NetCoreWeb;
 using JETech.NetCoreWeb.Types;
 using JETech.SIC.Core.Clients.Interfaces;
 using JETech.SIC.Core.Clients.Models;
-using JETech.SIC.Web.Models.Client;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using JETech.NetCoreWeb.Exceptions;
 
 namespace JETech.SIC.Web.Controllers.Api.Client
 {
@@ -32,13 +30,20 @@ namespace JETech.SIC.Web.Controllers.Api.Client
                 {                    
                         args.Condiction = JETech.DevExtremeCore.Converter.FilterToExpresion<ClientModel>(args.CondictionString);
                 }
-
-                var result = await _clientService.GetClients(args);
+                var resultCli =  _clientService.GetClients(args);
+                
+                var result = new ActionPaginationResult<List<ClientModel>>
+                {
+                    Data = await resultCli.Data.AsNoTracking().ToListAsync(),
+                    GroupCount = resultCli.GroupCount,
+                    TotalCount = resultCli.TotalCount
+                };
 
                 return Ok(result);
             }
             catch (Exception ex)
             {
+                ModelState.AddModelError(String.Empty,JETechException.Parse(ex).AppMessage);
                 throw;
             } 
         }
